@@ -1,2 +1,32 @@
 # npno
-Tired of writing DllMain by hand? This lightweight header-only utility automates everything with a simple preprocessor macro.
+## 🚀 Usage
+### 1. Include the header
+```cpp
+#include "npno.hpp"
+```
+### 2. Register your class
+At the bottom of your `main.cpp` (or any .cpp of your DLL):
+```cpp
+REGISTER_CLASS(Base)
+```
+### 3. Create your class
+Your class will be constructed automatically when the DLL is loaded:
+```cpp
+class Base
+{
+public:
+    Base()
+    {
+        this->Loop();
+    }
+
+private:
+    void Loop()
+    {
+        while(!GetAsyncKeyState(VK_DELETE))
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+};
+```
