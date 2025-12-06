@@ -16,7 +16,7 @@ Your class will be constructed automatically when the DLL is loaded:
 #include <thread>
 #include <windows.h>
 
-class Base
+class Base final
 {
 public:
     Base()
