@@ -2,7 +2,7 @@
 ## 🚀 Usage
 ### 1. Include the header
 ```cpp
-#include "npno.hpp"
+#include <npno/npno.hpp>
 ```
 ### 2. Register your class
 At the bottom of your `main.cpp` (or any .cpp of your DLL):
@@ -12,6 +12,10 @@ REGISTER_CLASS(Base)
 ### 3. Create your class
 Your class will be constructed automatically when the DLL is loaded:
 ```cpp
+#include <chrono>
+#include <thread>
+#include <windows.h>
+
 class Base
 {
 public:
